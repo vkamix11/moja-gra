@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Big Brain TOWER DEFENSE</title>
+  <title>Big Brain Tower Defense</title>
   <style>
     html, body {
       margin: 0; padding: 0;
@@ -178,7 +178,7 @@
   </style>
 </head>
 <body>
-  <div id="menu"><h1>Plants vs Zombies - Klon</h1><div id="levelSelection"></div></div>
+  <div id="menu"><h1>Big Brain Tower Defense</h1><div id="levelSelection"></div></div>
   <div id="game" style="display:none;">
     <div id="plantSelector"></div>
     <div id="bowlingNutConveyor" style="display:none;"></div>
@@ -569,7 +569,6 @@
 
     function updateCooldowns() { for (const plantId in plantCardCooldowns) { if (plantCardCooldowns[plantId] > 0) plantCardCooldowns[plantId]--; } }
 
-    // --- ZMIENIONA FUNKCJA ---
     function renderAll() {
         document.querySelectorAll('.plant, .zombie, .bullet, .bowling-nut').forEach(e => e.remove());
         grid.querySelectorAll('img.plant').forEach(e => e.remove());
@@ -588,14 +587,13 @@
             zombieEl.style.left = z.x + 'px'; 
             zombieEl.style.zIndex = 5 + z.row;
 
-            // ZMIANA: Modyfikacja rozmiaru i pozycji dla Conehead Zombie
             const baseHeight = grid.clientHeight / 5;
             let zombieHeight = baseHeight;
             let topPosition = (z.row * baseHeight) + grid.offsetTop;
 
             if (z.type === 'conehead') {
-                zombieHeight += 40; // Zwiększamy wysokość o 40px
-                topPosition -= 40; // Przesuwamy w górę o 40px, aby stopy były na miejscu
+                zombieHeight += 40;
+                topPosition -= 40;
             }
 
             zombieEl.style.height = zombieHeight + 'px';
